@@ -11,7 +11,7 @@ let requests = [];
 app.use(bodyParser.json());
 
 // POST route
-app.post('/data', (req, res) => {
+app.post('/register', (req, res) => {
     // Log received data along with timestamp and IP address
     const requestData = {
         data: req.body,
