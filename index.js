@@ -16,7 +16,6 @@ app.post('/register', (req, res) => {
     const requestData = {
         data: req.body,
         timestamp: new Date(),
-        ip: req.ip
     };
     requests.push(requestData);
 
@@ -26,9 +25,9 @@ app.post('/register', (req, res) => {
 
 // GET route to display requests in HTML table format
 app.get('/', (req, res) => {
-    let html = '<table border="1"><tr><th>Data</th><th>Timestamp</th><th>IP Address</th></tr>';
+    let html = '<table border="1"><tr><th>Data</th><th>Timestamp</th></tr>';
     requests.forEach(request => {
-        html += `<tr><td>${JSON.stringify(request.data)}</td><td>${request.timestamp}</td><td>${request.ip}</td></tr>`;
+        html += `<tr><td>${JSON.stringify(request.data)}</td><td>${request.timestamp}</td></tr>`;
     });
     html += '</table>';
     res.send(html);
