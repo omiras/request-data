@@ -8,7 +8,7 @@ const port = process.env.PORT || 3000;
 let requests = [];
 
 // Middleware to parse JSON bodies
-app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // POST route
 app.post('/register', (req, res) => {
