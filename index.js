@@ -23,6 +23,24 @@ app.post('/register', (req, res) => {
     res.json({ message: 'Data received successfully' });
 });
 
+app.post('/register-tshirt', (req, res) => {
+    // Log received data along with timestamp and IP address
+    if (!req.body.words) {
+        return res.json({ message: 'Text for the t-shirt not received. Check "name" field in your form control' });
+    }
+
+    if (!req.body.size) {
+        return res.json({ message: 'Size for the t-shirt not received. Check "name" field in your form control' });
+    }
+
+    if (!req.body.color) {
+        return res.json({ message: 'Color for the t-shirt not received. Check "name" field in your form control' });
+    }
+
+    // Send response back to the user
+    res.json({ message: 'New T-Shirt', data: req.body });
+});
+
 // GET route to display requests in HTML table format
 app.get('/', (req, res) => {
     let html = '<table border="1"><tr><th>Data</th><th>Timestamp</th></tr>';
